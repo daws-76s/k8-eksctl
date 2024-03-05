@@ -64,3 +64,9 @@ VALIDATE $? "eksctl installation"
 sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
 sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
 VALIDATE $? "kubens installation"
+
+sudo curl -sS https://webinstall.dev/k9s | bash
+VALIDATE $? "K9s installation"
+
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+VALIDATE $? "Metrics server installation"
